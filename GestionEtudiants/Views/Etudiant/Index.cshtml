@@ -1,0 +1,27 @@
+@model List<GestionEtudiants.Models.Etudiant>
+
+<h2>Liste des Étudiants</h2>
+
+<table border ="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Age</th>
+            <th>Filiere</th>
+        </tr>
+    </thead>
+   <tbody>
+    @foreach (var etudiant in Model){
+        
+        <tr>
+            <td>@etudiant.Id</td>
+            <td>@etudiant.Prenom</td>
+            <td>@etudiant.Nom</td>
+            <td>@etudiant.Age</td>
+            <td>@etudiant.Filiere</td>
+        </tr>
+    }
+   </tbody>
+</table>
