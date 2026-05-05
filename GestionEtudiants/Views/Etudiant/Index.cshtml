@@ -1,8 +1,11 @@
 @model List<GestionEtudiants.Models.Etudiant>
 
 <h2>Liste des Étudiants</h2>
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">Ajouter un étudiant</a>
+</div>
 
-<table border ="1">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -10,10 +13,11 @@
             <th>Nom</th>
             <th>Age</th>
             <th>Filiere</th>
+            <th>Actions</th>
         </tr>
     </thead>
    <tbody>
-    @foreach (var etudiant in Model){
+    @foreach (Etudiant etudiant in Model){
         
         <tr>
             <td>@etudiant.Id</td>
@@ -21,6 +25,13 @@
             <td>@etudiant.Nom</td>
             <td>@etudiant.Age</td>
             <td>@etudiant.Filiere</td>
+            <td>
+                <form asp-action="Remove" method="post" style="display:inline">
+                    <input type="hidden" name="id" value="@etudiant.Id">
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Confirmer la supperession ?');" >Supprimer</button>
+                </form>
+                <a asp-action="Edit" asp-route-id="@etudiant.Id" class="btn btn-warning btn-sm">Modifier</a>
+            </td>
         </tr>
     }
    </tbody>

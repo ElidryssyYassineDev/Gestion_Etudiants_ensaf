@@ -1,0 +1,39 @@
+@model GestionEtudiants.Models.Etudiant
+<h2 class="mb-4">Modifier un étudiant</h2>
+
+
+<form asp-action="Edit" method="post" class="container">
+    @* Id caché pour conserver l'identifiant *@
+    <input type="hidden" asp-for="Id">
+
+    <div class="mb-3 row">
+        <label asp-for="Nom" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Nom" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="Prenom" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Prenom" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="Age" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Age" class="form-control" type="number" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="Filiere" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Filiere" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+        <button type="submit" class="btn btnprimary">Enregistrer</button>
+        <a asp-action="Index" class="btn btn-secondary">Retour</a>
+        </div>
+    </div>
+</form>
