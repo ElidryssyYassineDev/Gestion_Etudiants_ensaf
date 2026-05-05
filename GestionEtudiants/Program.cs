@@ -1,4 +1,12 @@
+using GestionEtudiants.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//IMPORTANT !!
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options=>options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
